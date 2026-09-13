@@ -173,11 +173,11 @@ class MainTest {
     }
 
     @Test
-    @DisplayName("FruitService::getAll() should return all fruits")
+    @DisplayName("FruitService::save() should save and return the fruit")
     void testSaveFruitService() {
         when(mockFruitRepository.save(any(Fruit.class))).thenReturn(sampleFruitForFruitServiceTest);
 
-        Fruit savedFruit = fruitService.save(new Fruit());
+        Fruit savedFruit = fruitService.save(sampleFruitForFruitServiceTest);
 
         assertNotNull(savedFruit);
         assertEquals(sampleFruitForFruitServiceTest.getName(), savedFruit.getName());
